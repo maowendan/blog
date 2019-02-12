@@ -13,6 +13,8 @@ var usersRouter = require('./routes/users');
 var settings = require('./settings');
 var flash = require('connect-flash');
 
+var multer = require('multer');
+
 var app = express();
 
 // view engine setup
@@ -42,6 +44,14 @@ app.use(session({
 // app.use('/', indexRouter);
 // app.use('/users', usersRouter);
 routes(app);
+
+//增加文件上传功能
+app.use(multer({
+  dest: './public/images',
+  rename:function(fieldname, filename){
+    return filename;
+  }
+}))
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
