@@ -1,0 +1,12 @@
+<br/>
+<div class="paging">
+    <% if (!isFirstPage) { %>
+        <span class="page">当前是第 <b style="color:red"><%= page %></b> 页</span>
+        <span class="prepage"><a href="?p=<%= page-1 %>" title="上一页">上一页</a></span>
+    <% } %>
+
+    <% if (!isLastPage) { %>
+        <span class="page">当前是第 <b style="color:red"><%= page %></b> 页</span>
+        <span class="nextpage"><a href="?p=<%= page+1 %>" title="下一页">下一页</a></span>
+    <% } %>
+</div>
